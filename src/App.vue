@@ -31,4 +31,16 @@
 #nav a.router-link-exact-active {
   color: #26c1c9;
 }
+
+.center-in-page {
+  position: fixed;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 </style>
