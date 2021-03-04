@@ -12,10 +12,11 @@
         color="white"
         size="medium"
         left-icon="link"
-				:href="getUrl()"
+        :href="getUrl()"
         >Open link</gb-button
       >
     </div>
+    <gb-spinner v-else class="m-4" />
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
   data() {
     return {
       id: String,
-			ready: false
+      ready: false
     };
   },
   methods: {
@@ -38,7 +39,7 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.id = user.uid;
-				this.ready = true;
+        this.ready = true;
       } else {
         //TODO
         this.id = "";

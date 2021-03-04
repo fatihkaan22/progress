@@ -9,6 +9,7 @@
       />
       <gb-divider />
       <div class="row justify-content-center mx-auto">
+				<gb-spinner v-if="loading" class="center-in-page p-4"/>
         <NewProgress
           @value="addNewProgressDone"
           :card="newCardTemplate"
@@ -45,10 +46,11 @@ export default {
   data() {
     return {
       list: [],
+			loading: true,
       authUser: { displayName: "Your Progress" },
       onNewCard: false,
       editingCard: {},
-      newCardTemplate: {}
+      newCardTemplate: {},
     };
   },
   methods: {
@@ -121,6 +123,7 @@ export default {
           list.push(item);
         });
         this.list = list.reverse();
+				this.loading = false;
       });
     }
   },
@@ -158,5 +161,11 @@ h2 {
 .hidden {
   width: 19rem;
   margin: 1rem;
+}
+.center-in-page {
+	z-index: 2;
+	position: absolute;
+	left: 50%;
+	top: 50%;
 }
 </style>
