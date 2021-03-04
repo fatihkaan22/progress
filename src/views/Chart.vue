@@ -8,8 +8,8 @@
         :buttonState="buttonState"
       />
       <gb-divider />
+			<gb-spinner v-if="loading" class="center-in-page p-4 m-5"/>
       <div class="row justify-content-center mx-auto">
-				<gb-spinner v-if="loading" class="center-in-page p-4"/>
         <NewProgress
           @value="addNewProgressDone"
           :card="newCardTemplate"
@@ -161,11 +161,5 @@ h2 {
 .hidden {
   width: 19rem;
   margin: 1rem;
-}
-.center-in-page {
-	z-index: 2;
-	position: absolute;
-	left: 50%;
-	top: 50%;
 }
 </style>
