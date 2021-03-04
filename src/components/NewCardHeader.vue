@@ -1,11 +1,12 @@
 <template>
   <div class="row justify-content-between">
-    <h2>{{ headerText }}</h2>
+    <h2 class="ml-4">{{ headerText }}</h2>
     <gb-button
-			v-if="button"
+      v-if="button"
       :color="getColor()"
       @click="$emit('click', buttonState)"
       :left-icon="getIcon()"
+      class="mr-4"
     >
       {{ getText() }}
     </gb-button>
@@ -18,7 +19,7 @@ export default {
   props: {
     headerText: "",
     buttonState: "", //"add" or "cancel"
-		button: Boolean
+    button: Boolean
   },
   methods: {
     getColor() {
