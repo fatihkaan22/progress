@@ -4,11 +4,14 @@
       <NewCardHeader
         @click="newCardClicked"
         headerText="Your Progress"
-				:button="true"
+        :button="true"
         :buttonState="buttonState"
       />
       <gb-divider />
-			<gb-spinner v-if="loading" class="center-in-page p-4 m-5"/>
+      <gb-spinner v-if="loading" class="center-in-page p-4 m-5" />
+      <p v-if="list.length == 0 && !loading && !onNewCard">
+        Add a new card to start tracking & sharing your progress.
+      </p>
       <div class="row justify-content-center mx-auto">
         <NewProgress
           @value="addNewProgressDone"
@@ -17,7 +20,7 @@
         />
         <div v-for="i in list" class="d-inline">
           <ProgressCard
-						:editable="true"
+            :editable="true"
             v-bind:key="i.id"
             @delete="deleteCard"
             @edit="editCard"
@@ -41,16 +44,17 @@ export default {
   components: {
     ProgressCard,
     NewProgress,
-    NewCardHeader,
+    NewCardHeader
   },
   data() {
     return {
       list: [],
-			loading: true,
+      loading: true,
       authUser: { displayName: "Your Progress" },
       onNewCard: false,
       editingCard: {},
       newCardTemplate: {},
+      hint: false
     };
   },
   methods: {
@@ -123,7 +127,7 @@ export default {
           list.push(item);
         });
         this.list = list.reverse();
-				this.loading = false;
+        this.loading = false;
       });
     }
   },
