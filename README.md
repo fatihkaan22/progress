@@ -12,6 +12,8 @@ Project is available at https://prgrs.github.io
 
 ## Public page
 
+An example of a public profile: https://prgrs.github.io/u?id=example
+
 ![user](./img/user.png)
 
 ## Project setup
